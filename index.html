@@ -3,24 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>选择导航应用</title>
+    <title>地图选择</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        button {
+            display: block;
+            width: 200px;
+            height: 50px;
+            margin: 20px auto;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        function openBaiduMap() {
+            // 百度地图 iOS URL Scheme
+            const url = 'baidumap://map/direction?destination=name:沣西里商业街区停车场(出入口)|latlng:34.347896,108.949834&coord_type=gcj02&src=webapp';
+            window.location.href = url;
+        }
+
+        function openGaodeMap() {
+            // 高德地图 iOS URL Scheme
+            const url = 'iosamap://path?sourceApplication=webapp&dname=沣西里商业街区停车场(出入口)&dlat=34.347896&dlon=108.949834&dev=0&t=0';
+            window.location.href = url;
+        }
+
+        function isIOS() {
+            return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        }
+
+        window.onload = function() {
+            if (!isIOS()) {
+                alert('此页面仅支持 iOS 用户访问');
+            }
+        };
+    </script>
 </head>
 <body>
-    <h2>请选择导航应用</h2>
-
-    <!-- 百度地图导航 -->
-    <a href="baidumap://map/direction?destination=latlng:30.658601,104.064856|name:天府广场&mode=driving">
-        <button>使用百度地图导航</button>
-    </a>
-
-    <!-- 高德地图导航 -->
-    <a href="iosamap://path?sourceApplication=导航&dlat=30.658601&dlon=104.064856&dname=天府广场&dev=0&m=0&t=0">
-        <button>使用高德地图导航</button>
-    </a>
-
-    <!-- 谷歌地图导航 -->
-    <a href="https://www.google.com/maps/dir/?api=1&destination=30.658601,104.064856">
-        <button>使用谷歌地图导航</button>
-    </a>
+    <h1>请选择地图应用</h1>
+    <button onclick="openBaiduMap()">打开百度地图</button>
+    <button onclick="openGaodeMap()">打开高德地图</button>
 </body>
 </html>
+
