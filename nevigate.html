@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择导航应用</title>
+</head>
+<body>
+    <h2>请选择导航应用</h2>
+
+    <!-- 百度地图导航 -->
+    <a href="baidumap://map/direction?destination=latlng:30.658601,104.064856|name:天府广场&mode=driving">
+        <button>使用百度地图导航</button>
+    </a>
+
+    <!-- 高德地图导航 -->
+    <a href="iosamap://path?sourceApplication=导航&dlat=30.658601&dlon=104.064856&dname=天府广场&dev=0&m=0&t=0">
+        <button>使用高德地图导航</button>
+    </a>
+
+    <!-- 谷歌地图导航 -->
+    <a href="https://www.google.com/maps/dir/?api=1&destination=30.658601,104.064856">
+        <button>使用谷歌地图导航</button>
+    </a>
+</body>
+</html>
